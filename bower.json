@@ -12,7 +12,8 @@
     "angular-animate": "~1.2.0",
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
-    "angular-strap": "v2.1.0"
+    "angular-strap": "v2.1.0",
+    "lodash": "~3.9.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
