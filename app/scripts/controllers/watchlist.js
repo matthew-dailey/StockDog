@@ -8,10 +8,31 @@
  * Controller of the stockDogApp
  */
 angular.module('stockDogApp')
-  .controller('WatchlistCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('WatchlistCtrl', function ($scope, $routeParams, $modal,
+    WatchlistService, CompanyService) {
+      
+      $scope.companies = CompanyService.query();
+      $scope.watchlist = WatchlistService.query($routeParams.listId);
+      $scope.stocks = $scope.watchlist.stocks;
+      $scope.newStock = {};
+      var addStockModal = $modal({
+        scope: $scope,
+        template: 'views/templates/addstock-modal.html',
+        show: false
+      });
+      
+      $scope.showStockModal = function() {
+        addStockModal.$promise.then(addStockModal.show);
+      };
+
+      $scope.addStock = function() {
+        $scope.watchlist.addStock({
+          listId: $routeParams.listId,
+          company: $scope.newStock.company,
+          shares: $scope.newStock.shares
+        });
+        addStockModal.hide();
+        console.log('Adding new stock ' + JSON.stringify($scope.newStock));
+        $scope.newStock = {};
+      };
   });
