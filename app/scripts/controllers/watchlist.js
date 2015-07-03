@@ -26,9 +26,13 @@ angular.module('stockDogApp')
       };
 
       $scope.addStock = function() {
+        // $scope.newStock has been populated by the modal this is attached to
+        var fullCompany = _.find($scope.companies, function(company) {
+          return company.label === $scope.newStock.company;
+        });
         $scope.watchlist.addStock({
           listId: $routeParams.listId,
-          company: $scope.newStock.company,
+          company: fullCompany,
           shares: $scope.newStock.shares
         });
         addStockModal.hide();

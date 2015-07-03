@@ -20,7 +20,7 @@
             <span class="glyphicon glyphicon-plus"></span>located above.</p>
         </div>
         <!--[1] loop over all stocks and display company symbols -->
-        <p ng-repeat="stock in stocks">{{stock.company}}, shares {{stock.shares}}</p>
+        <p ng-repeat="stock in stocks">{{stock.company.symbol}}, shares {{stock.shares}}</p>
       </div>
     </div>
   </div>

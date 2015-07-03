@@ -22,7 +22,7 @@ angular.module('stockDogApp')
         addStock: function (stock) {
             console.log('Adding stock ' + JSON.stringify(stock));
             var existingStock = _.find(this.stocks, function (s) {
-                return s.company === stock.company;
+                return s.company.symbol === stock.company.symbol;
             });
             if (existingStock) {
                 console.log('stock exists');
