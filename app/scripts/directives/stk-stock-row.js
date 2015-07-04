@@ -6,8 +6,6 @@
  * @description
  * # stkStockRow
  */
-'use strict';
-
 angular.module('stockDogApp')
   .directive('stkStockRow', function ($timeout, QuoteService) {
   return {
