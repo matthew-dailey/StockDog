@@ -1,0 +1,48 @@
+<table class="table">
+	<thead>
+		<tr>
+			<td>Symbol</td>
+			<td>Shares Owned</td>
+			<td>Last Price</td>
+			<td>Price Change
+				<span>(
+					<!--[1] Toggle showPercent scope variable on click -->
+					<span ng-disabled="showPercent === false">
+						<a ng-click="showPercent = !showPercent">$</a>
+					</span>|
+					<span ng-disabled="showPercent === true">
+						<a ng-click="showPercent = !showPercent">%</a>
+					</span>)</span>
+			</td>
+			<td>Market Value</td>
+			<td>Day Change</td>
+		</tr>
+	</thead>
+	<!-- [2] Only show footer if more than one stock exists -->
+	<tfoot ng-show="watchlist.stocks.length > 1">
+		<tr>
+			<td>Totals</td>
+			<td>{{watchlist.shares}}</td>
+			<td></td>
+			<td></td>
+			<td>{{watchlist.marketValue}}</td>
+			<td>{{watchlist.dayChange}}</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<!-- [3] Use stk-stock-row to create row for each stock -->
+		<tr stk-stock-row ng-repeat="stock in watchlist.stocks track by $index" stock="stock" is-last="$last">
+			<td>{{stock.company.symbol}}</td>
+			<td>{{stock.shares}}</td>
+			<td>{{stock.lastPrice}}</td>
+			<td>
+				<span ng-hide="showPercent">{{stock.change}}</span>
+				<span ng-show="showPercent">{{stock.percentChange}}</span>
+			</td>
+			<td>{{stock.marketValue}}</td>
+			<td>{{stock.dayChange}}
+				<button type="button" class="close" ng-click="removeStock(stock)">×</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

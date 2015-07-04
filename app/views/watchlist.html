@@ -20,7 +20,7 @@
             <span class="glyphicon glyphicon-plus"></span>located above.</p>
         </div>
         <!--[1] loop over all stocks and display company symbols -->
-        <p ng-repeat="stock in stocks">{{stock.company.symbol}}, shares {{stock.shares}}</p>
+        <stk-stock-table ng-show="stocks.length" watchlist="watchlist"></stk-stock-table>
       </div>
     </div>
   </div>
