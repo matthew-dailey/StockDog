@@ -36,7 +36,6 @@ angular.module('stockDogApp')
           shares: $scope.newStock.shares
         });
         addStockModal.hide();
-        console.log('Adding new stock ' + JSON.stringify($scope.newStock));
         $scope.newStock = {};
       };
   });

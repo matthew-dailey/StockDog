@@ -20,15 +20,12 @@ angular.module('stockDogApp')
     // Augment watchlists with additional helper functions
     var WatchlistModel = {
         addStock: function (stock) {
-            console.log('Adding stock ' + JSON.stringify(stock));
             var existingStock = _.find(this.stocks, function (s) {
                 return s.company.symbol === stock.company.symbol;
             });
             if (existingStock) {
-                console.log('stock exists');
                 existingStock.shares += stock.shares;
             } else {
-                console.log('new stock');
                 _.extend(stock, StockModel);
                 this.stocks.push(stock);
             }
