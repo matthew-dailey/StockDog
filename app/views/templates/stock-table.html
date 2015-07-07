@@ -25,7 +25,7 @@
 			<td>{{watchlist.shares}}</td>
 			<td></td>
 			<td></td>
-			<td>{{watchlist.marketValue | currency}}</td>
+			<td stk-sign-fade="{{watchlist.marketValue}}">{{watchlist.marketValue | currency}}</td>
 			<td stk-sign-color="{{watchlist.dayChange}}">{{watchlist.dayChange | currency}}</td>
 		</tr>
 	</tfoot>
@@ -34,7 +34,7 @@
 		<tr stk-stock-row ng-repeat="stock in watchlist.stocks track by $index" stock="stock" is-last="$last">
 			<td>{{stock.company.symbol}}</td>
 			<td contenteditable type="number" ng-model="stock.shares"></td>
-			<td>{{stock.lastPrice | currency}}</td>
+			<td stk-sign-fade="{{stock.lastPrice}}">{{stock.lastPrice | currency}}</td>
 			<td stk-sign-color="{{stock.change}}">
 				<span ng-hide="showPercent">{{stock.change}}</span>
 				<span ng-show="showPercent">{{stock.percentChange}}</span>
