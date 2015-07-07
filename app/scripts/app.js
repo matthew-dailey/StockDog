@@ -17,7 +17,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
+    'googlechart'
   ])
   .config(function ($routeProvider) {
     $routeProvider
