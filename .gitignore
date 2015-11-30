@@ -7,3 +7,4 @@ bower_components
 # IDE files
 /.idea
 /typings
+/.tern-project
